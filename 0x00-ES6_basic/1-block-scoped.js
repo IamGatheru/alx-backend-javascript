@@ -7,5 +7,5 @@ export default function(trueOrFalse) {
 		const task2 = false;
 	}
 
-	return [task1, task2];
+	return [task, task2];
 }
