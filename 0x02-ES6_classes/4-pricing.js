@@ -1,31 +1,46 @@
 import Currency from './3-currency';
 
+/**
+ * Represents a class Pricing.
+ */
 export default class Pricing {
+  /**
+   * Creates a new Pricing instance.
+   *
+   * @param {String} amount - The amount.
+   * @param {String} currency - The currency.
+   */
   constructor(amount, currency) {
-    this._amount = amount;
-    this._currency = currency;
-  }
-
-  set amount(amount) {
-    if (typeof amount !== 'number') {
-      throw new TypeError('amount must be a number');
-    }
-    this._amount = amount;
+    this.amount = amount;
+    this.currency = currency;
   }
 
   get amount() {
     return this._amount;
   }
 
-  set currency(currency) {
-    if (!(currency instanceof Currency)) {
-      throw new TypeError('currency must be a Currency');
+  set amount(value) {
+    if (typeof value !== 'number') {
+      throw new TypeError('amount must be a number');
     }
-    this._currency = currency;
+    this._amount = value;
   }
 
+  /**
+   * @returns {Currency}
+   */
   get currency() {
     return this._currency;
+  }
+
+  /**
+   * @param {Currency} value
+   */
+  set currency(value) {
+    if (!(value instanceof Currency)) {
+      throw new TypeError('currency must be a Currency');
+    }
+    this._currency = value;
   }
 
   displayFullPrice() {
@@ -35,10 +50,10 @@ export default class Pricing {
   /**
    * static method convertPrice.
    *
-   * @param {string} amount - The amount.
-   * @param {string} conversionRate - The conversionRate.
+   * @param {String} amount - The amount.
+   * @param {String} conversionRate - The conversionRate.
    */
-  static conversionPrice(amount, conversionRate) {
+  static convertPrice(amount, conversionRate) {
     if (typeof amount !== 'number') {
       throw new TypeError('amount must be a number');
     }
