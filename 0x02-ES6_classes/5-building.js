@@ -1,20 +1,26 @@
+/**
+ * Represents a class Building.
+ */
 export default class Building {
+  /**
+   * Creates a new Building instance.
+   *
+   * @param {Number} sqft - Square feet of the building.
+   */
   constructor(sqft) {
-    this._sqft = sqft;
+    this.sqft = sqft;
     if (this.constructor !== Building) {
       if (typeof this.evacuationWarningMessage !== 'function') {
-        throw new Error('class extending Building must override evacuationWarningMessage');
+        throw new Error('Class extending Building must override evacuationWarningMessage');
       }
-    }
-  }
-
-  set sqft(footage) {
-    if (typeof footage === 'number') {
-      this._sqft = footage;
     }
   }
 
   get sqft() {
     return this._sqft;
+  }
+
+  set sqft(value) {
+    this._sqft = value;
   }
 }
